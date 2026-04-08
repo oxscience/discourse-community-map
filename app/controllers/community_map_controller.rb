@@ -12,6 +12,7 @@ module DiscourseCommunityMap
 
     # GET /community-map — Standalone HTML page with Leaflet map
     def show
+      response.headers["Content-Security-Policy"] = "default-src 'self'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src 'self' https://*.basemaps.cartocdn.com https://*.tile.openstreetmap.org https://campus.outoftheb-ox.de data:; connect-src 'self'; frame-ancestors 'self' https://campus.outoftheb-ox.de https://www.outoftheb-ox.de"
       render html: map_page_html.html_safe, layout: false
     end
 
