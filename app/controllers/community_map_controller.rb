@@ -555,7 +555,7 @@ module DiscourseCommunityMap
         <script>
         (function() {
           var BASE_URL = #{base_url.to_json};
-          var API_URL = BASE_URL + '/community-map/members.json';
+          var API_URL = BASE_URL + '/community-map-api/members.json';
 
           var isEmbed = (window.self !== window.top);
           var isMobile = window.innerWidth <= 600;

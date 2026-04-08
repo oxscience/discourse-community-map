@@ -29,6 +29,6 @@ after_initialize do
   end
 
   Discourse::Application.routes.append do
-    mount ::DiscourseCommunityMap::Engine, at: "/community-map"
+    mount ::DiscourseCommunityMap::Engine, at: "/community-map-api"
   end
 end
