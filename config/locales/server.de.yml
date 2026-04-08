@@ -1,0 +1,9 @@
+de:
+  site_settings:
+    community_map_enabled: "Community Map Seite unter /community-map aktivieren"
+    community_map_location_field: "Name des Custom User Fields fuer den Standort (z.B. 'Stadt')"
+    community_map_position_field: "Optionales Custom User Field fuer die Berufsbezeichnung (z.B. 'Beruf')"
+    community_map_about_field: "Optionales Custom User Field fuer die Kurzbeschreibung (z.B. 'Ueber mich')"
+    community_map_allowed_groups: "Nur Mitglieder dieser Gruppen anzeigen (leer = alle User)"
+    community_map_min_trust_level: "Minimales Trust Level um auf der Map zu erscheinen"
+    community_map_cache_duration_minutes: "Wie lange Geocoding-Ergebnisse gecacht werden (Minuten)"
