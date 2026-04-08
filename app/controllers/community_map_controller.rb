@@ -150,6 +150,14 @@ module DiscourseCommunityMap
       nil
     end
 
+    def leaflet_css
+      @leaflet_css ||= File.read(File.join(File.dirname(__FILE__), "../../assets/vendor/leaflet.min.css"))
+    end
+
+    def leaflet_js
+      @leaflet_js ||= File.read(File.join(File.dirname(__FILE__), "../../assets/vendor/leaflet.min.js"))
+    end
+
     def map_page_html
       base_url = Discourse.base_url
       site_title = SiteSetting.title
@@ -161,7 +169,7 @@ module DiscourseCommunityMap
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
           <title>Community Map — #{ERB::Util.html_escape(site_title)}</title>
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+          <style>#{leaflet_css}</style>
           <style>
             :root {
               --cm-bg: #1a1d23;
@@ -542,7 +550,7 @@ module DiscourseCommunityMap
           </div>
         </div>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+        <script>#{leaflet_js}</script>
         <script>
         (function() {
           var BASE_URL = #{base_url.to_json};
