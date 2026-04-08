@@ -30,8 +30,5 @@ after_initialize do
 
   Discourse::Application.routes.append do
     mount ::DiscourseCommunityMap::Engine, at: "/community-map"
-
-    # Ember catch-all route for /community-map
-    get "/community-map" => "list#latest"
   end
 end
