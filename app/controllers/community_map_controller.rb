@@ -27,7 +27,7 @@ module DiscourseCommunityMap
         build_members_json
       end
 
-      render json: result
+      render json: result, root: false
     end
 
     private
