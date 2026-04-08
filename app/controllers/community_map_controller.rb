@@ -161,7 +161,7 @@ module DiscourseCommunityMap
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
           <title>Community Map — #{ERB::Util.html_escape(site_title)}</title>
-          <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
           <style>
             :root {
               --cm-bg: #1a1d23;
@@ -542,7 +542,7 @@ module DiscourseCommunityMap
           </div>
         </div>
 
-        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
         <script>
         (function() {
           var BASE_URL = #{base_url.to_json};
