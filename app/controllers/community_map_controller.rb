@@ -10,7 +10,7 @@ module DiscourseCommunityMap
 
     GEOCODE_CACHE_KEY = "community_map_geocode_cache"
 
-    # GET /community-map — Standalone HTML page with Leaflet map
+    # GET /community-map/embed — Standalone HTML page with Leaflet map (rendered in iframe)
     def show
       response.headers["Content-Security-Policy"] = "default-src 'self'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src 'self' https://*.basemaps.cartocdn.com https://*.tile.openstreetmap.org https://campus.outoftheb-ox.de data:; connect-src 'self'; frame-ancestors 'self' https://campus.outoftheb-ox.de https://www.outoftheb-ox.de"
       render html: map_page_html.html_safe, layout: false
@@ -560,6 +560,10 @@ module DiscourseCommunityMap
           var isEmbed = (window.self !== window.top);
           var isMobile = window.innerWidth <= 600;
 
+          // Always hide back-link (page is now in iframe within Discourse)
+          var backLink = document.querySelector('.back-link');
+          if (backLink) backLink.style.display = 'none';
+
           // Hide branding when embedded
           if (isEmbed) {
             var header = document.getElementById('sidebar-header');
@@ -567,8 +571,6 @@ module DiscourseCommunityMap
               var brand = header.querySelector('.brand');
               if (brand) brand.style.display = 'none';
             }
-            var backLink = document.querySelector('.back-link');
-            if (backLink) backLink.style.display = 'none';
           }
 
           // Init map — centered on DACH region

@@ -1,0 +1,28 @@
+.community-map-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+
+  // Offset for Discourse header
+  top: var(--header-offset, 60px);
+
+  .community-map-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+}
+
+// Hide Discourse main content when map is active
+body.community-map-page {
+  #main-outlet {
+    display: none;
+  }
+
+  .sidebar-wrapper {
+    display: none;
+  }
+}
